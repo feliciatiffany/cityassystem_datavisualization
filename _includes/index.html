@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WishList</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <main class="container">
+    <!-- tune hole-rate (0..1), max-holes per row, and optional seed -->
+    <div class="grid" data-hole-rate="0.22" data-max-holes="2" data-seed="">
+      {% for item in images %}
+        <figure class="tile">
+          <a href="{{ item.url }}" target="_blank" rel="noopener">
+            <img src="{{ item.url }}" alt="{{ item.alt or 'image' }}" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="sr-only">{{ item.alt }}</figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+
+
+    <!-- project description -->
+    <div class="desccontainer">
+        <div class="desc">
+            This project is blasaladkajdjalsdjaljdlanlsnd
+        </div>
+    </div>
+
+    {% for item in palette %}
+        <figure class="tile">
+          <a href="{{ item.url }}" target="_blank" rel="noopener">
+            <img src="{{ item.url }}" alt="{{ item.alt or 'image' }}" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="sr-only">{{ item.alt }}</figcaption>
+        </figure>
+    {% endfor %}
+
+
+  </main>
+  <script src="script/holes.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!-- PATH: _includes/index.njk -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WishList</title>
+  <link rel="stylesheet" href="{{ 'styles/style.css' | url }}" />
+  <link rel="stylesheet" href="https://use.typekit.net/guv6xde.css">
+</head>
+<body>
+  <main class="container">
+
+    <!-- Grid with holes -->
+    <div class="grid"
+         data-hole-rate="0.22"
+         data-max-holes="2"
+         data-seed=""
+         data-hole-words={{ hole }}>
+      {% for item in images %}
+        <figure class="tile reveal has-tip"
+          {% if item.date %} data-date="{{ item.date }}" data-tip="Date: {{ item.date }}"{% endif %}>
+          <a href="{{ item.permalink | url }}" target="_blank" rel="noopener">
+            <img src="{{ item.url | url }}" alt="{{ item.alt or 'image' }}" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="sr-only">{{ item.alt }}</figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+
+    <!-- Project description -->
+    <section class="lede-wrap">
+      <div class="description" style="--reveal-delay:180ms;">
+        {{ title }}
+      </div>
+
+      <div class="lede reveal reveal--slow" style="--reveal-delay:200ms;">
+        {{ content | safe }}
+      </div>
+    </section>
+
+    <!-- Palette (centered) -->
+    <section class="palette">
+      <div class="palette-group palette-group--weather reveal" style="--reveal-delay:60ms;">
+        <div class="swatches">
+          {% set eight = [1,2,3,4,5,6,7,8] %}
+          {% for _ in eight %}<span class="swatch"></span>{% endfor %}
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="{{ 'script/holes.js' | url }}" defer></script>
+  <script src="{{ 'script/animation.js' | url }}" defer></script>
+</body>
+</html>

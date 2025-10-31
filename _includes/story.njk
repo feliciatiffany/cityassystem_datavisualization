@@ -1,0 +1,164 @@
+<!-- _includes/story.njk (only the palette loops changed to use Nunjucks range()) -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ title or "Field Note" }}</title>
+  <link rel="stylesheet" href="{{ 'styles/storyStyle.css' | url }}" />
+  <link rel="stylesheet" href="https://use.typekit.net/guv6xde.css">
+</head>
+<body>
+  <a class="back-home" href="{{ '/' | url }}" aria-label="Back to home">← Home</a>
+
+  <main class="container">
+    {% if hero and hero.src %}
+    <figure class="hero reveal">
+      <img src="{{ hero.src | url }}" alt="{{ hero.alt or '' }}" loading="eager" decoding="async">
+      {% if hero.alt %}<figcaption class="sr-only">{{ hero.alt }}</figcaption>{% endif %}
+    </figure>
+    {% endif %}
+
+    <section class="lede-wrap">
+      <div class="lede reveal reveal--slow" style="--reveal-delay: 180ms;">
+        {{ content | safe }}
+      </div>
+    </section>
+
+    <!-- Centered palette; weather now has 8 dots -->
+    <section class="palette">
+      <div class="palette-group palette-group--weather reveal" style="--reveal-delay:60ms;">
+        <h3 class="palette-title">Weather</h3>
+        <div class="swatches">
+          {% for _ in range(8) %}<span class="swatch"></span>{% endfor %}
+        </div>
+      </div>
+
+      <div class="palette-group palette-group--temperature reveal" style="--reveal-delay:120ms;">
+        <h3 class="palette-title">Temperature</h3>
+        <div class="swatches">
+          {% for _ in range(4) %}<span class="swatch"></span>{% endfor %}
+        </div>
+      </div>
+
+      <div class="palette-group palette-group--sound reveal" style="--reveal-delay:180ms;">
+        <h3 class="palette-title">Sound</h3>
+        <div class="swatches">
+          {% for _ in range(4) %}<span class="swatch"></span>{% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary (6 cols) -->
+    <section class="grid-table grid-table--primary" aria-label="summary">
+      {% if date %}
+      <div class="cell reveal" style="--reveal-delay:0ms;">
+        <span class="label">Date</span>
+        <span class="value">{{ displayDate or (date | formatDate('en-US')) }}</span>
+      </div>
+      {% endif %}
+      {% if time %}
+      <div class="cell reveal" style="--reveal-delay:60ms;">
+        <span class="label">Time</span>
+        <span class="value">{{ time }}</span>
+      </div>
+      {% endif %}
+      {% if duration %}
+      <div class="cell reveal" style="--reveal-delay:120ms;">
+        <span class="label">Duration</span>
+        <span class="value">{{ duration }}</span>
+      </div>
+      {% endif %}
+      {% if weather %}
+      <div class="cell reveal" style="--reveal-delay:180ms;">
+        <span class="label">weather</span>
+        <span class="value">{{ weather }}</span>
+      </div>
+      {% endif %}
+      {% if temperature %}
+      <div class="cell reveal" style="--reveal-delay:240ms;">
+        <span class="label">Temperature</span>
+        <span class="value">{{ temperature }}</span>
+      </div>
+      {% endif %}
+      {% if sound %}
+      <div class="cell reveal" style="--reveal-delay:300ms;">
+        <span class="label">Sound</span>
+        <span class="value">{{ sound }}</span>
+      </div>
+      {% endif %}
+    </section>
+
+    {% if events %}
+    <h2 class="section-title reveal" style="--reveal-delay:120ms;">Event Frequencies</h2>
+    <section class="grid-table grid-table--compact" aria-label="event frequencies">
+      {% if events.peopleOnPlatform %}
+      <div class="cell reveal" style="--reveal-delay:0ms;">
+        <span class="label label--accent label--people">People shown on platform</span>
+        <span class="value">{{ events.peopleOnPlatform }}</span>
+      </div>{% endif %}
+      {% if events.subway %}
+      <div class="cell reveal" style="--reveal-delay:60ms;">
+        <span class="label label--accent label--subway">Subway</span>
+        <span class="value">{{ events.subway }}</span>
+      </div>{% endif %}
+      {% if events.passerby %}
+      <div class="cell reveal" style="--reveal-delay:120ms;">
+        <span class="label label--accent label--passerby">Passerby</span>
+        <span class="value">{{ events.passerby }}</span>
+      </div>{% endif %}
+      {% if events.neighbors %}
+      <div class="cell reveal" style="--reveal-delay:180ms;">
+        <span class="label label--accent label--neighbors">Neighbors</span>
+        <span class="value">{{ events.neighbors }}</span>
+      </div>{% endif %}
+      {% if events.honks %}
+      <div class="cell reveal" style="--reveal-delay:240ms;">
+        <span class="label label--accent label--honks">Honks</span>
+        <span class="value">{{ events.honks }}</span>
+      </div>{% endif %}
+      {% if events.cars %}
+      <div class="cell reveal" style="--reveal-delay:300ms;">
+        <span class="label label--accent label--cars">Cars</span>
+        <span class="value">{{ events.cars }}</span>
+      </div>{% endif %}
+      {% if events.areaCondition %}
+      <div class="cell reveal" style="--reveal-delay:360ms;">
+        <span class="label label--area">Area Condition</span>
+        <span class="value">{{ events.areaCondition }}</span>
+      </div>{% endif %}
+    </section>
+    {% endif %}
+
+    <!-- Notes (3 cols) -->
+    <section class="notes-grid" aria-label="notes">
+      {% if standout %}
+      <article class="note-card reveal" style="--reveal-delay:0ms;">
+        <h3 class="note-title">Standout</h3>
+        <div class="note-body">
+          {% if standout | isArray %}
+            <ul class="bullets">{% for s in standout %}<li>{{ s }}</li>{% endfor %}</ul>
+          {% else %}
+            <p>{{ standout }}</p>
+          {% endif %}
+        </div>
+      </article>
+      {% endif %}
+      {% if intersubjectivity %}
+      <article class="note-card reveal" style="--reveal-delay:90ms;">
+        <h3 class="note-title">Intersubjectivity Scale</h3>
+        <div class="note-body"><p>{{ intersubjectivity }}</p></div>
+      </article>
+      {% endif %}
+      {% if interaction %}
+      <article class="note-card reveal" style="--reveal-delay:180ms;">
+        <h3 class="note-title">Interaction (Seen or Overheard)</h3>
+        <div class="note-body"><p>{{ interaction }}</p></div>
+      </article>
+      {% endif %}
+    </section>
+  </main>
+
+  <script src="{{ 'script/animation.js' | url }}" defer></script>
+</body>
+</html>
