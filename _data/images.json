@@ -1,14 +1,14 @@
 [
-  { "url": "./images/1015-1.jpg", "alt": "1015-morning", "permalink": "1015-1.html" },
-  { "url": "./images/1016-1.png", "alt": "1016-morning", "permalink": "1016-1.html" },
-  { "url": "./images/1017-1.png", "alt": "1017-morning", "permalink": "1017-1.html" },
-  { "url": "./images/1021-1.png", "alt": "1021-morning", "permalink": "1021-1.html" },
-  { "url": "./images/1022-1.png", "alt": "1022-morning", "permalink": "1022-1.html" },
-  { "url": "./images/1023-1.png", "alt": "1023-morning", "permalink": "1023-1.html" },
-  { "url": "./images/1023-2.png", "alt": "1023-evening", "permalink": "1023-2.html" },
-  { "url": "./images/1024-1.png", "alt": "1024-morning", "permalink": "1024-1.html" },
-  { "url": "./images/1025-1.png", "alt": "1025-morning", "permalink": "1025-1.html" },
-  { "url": "./images/1026-1.png", "alt": "1026-morning", "permalink": "1026-1.html" },
-  { "url": "./images/1026-2.png", "alt": "1026-evening", "permalink": "1026-2.html" },
-  { "url": "./images/1027-1.png", "alt": "1027-morning", "permalink": "1027-1.html" }
+  { "url": "./images/1015-1.jpg", "alt": "1015-morning", "permalink": "1015-1.html", "text": "10/15/2025 Morning" },
+  { "url": "./images/1016-1.png", "alt": "1016-morning", "permalink": "1016-1.html", "text": "10/16/2025 Morning" },
+  { "url": "./images/1017-1.png", "alt": "1017-morning", "permalink": "1017-1.html", "text": "10/17/2025 Morning" },
+  { "url": "./images/1021-1.png", "alt": "1021-morning", "permalink": "1021-1.html", "text": "10/21/2025 Morning" },
+  { "url": "./images/1022-1.png", "alt": "1022-morning", "permalink": "1022-1.html", "text": "10/22/2025 Morning" },
+  { "url": "./images/1023-1.png", "alt": "1023-morning", "permalink": "1023-1.html", "text": "10/23/2025 Morning" },
+  { "url": "./images/1023-2.png", "alt": "1023-evening", "permalink": "1023-2.html", "text": "10/23/2025 Evening" },
+  { "url": "./images/1024-1.png", "alt": "1024-morning", "permalink": "1024-1.html", "text": "10/24/2025 Morning" },
+  { "url": "./images/1025-1.png", "alt": "1025-morning", "permalink": "1025-1.html", "text": "10/25/2025 Morning" },
+  { "url": "./images/1026-1.png", "alt": "1026-morning", "permalink": "1026-1.html", "text": "10/26/2025 Morning" },
+  { "url": "./images/1026-2.png", "alt": "1026-evening", "permalink": "1026-2.html", "text": "10/26/2025 Evening" },
+  { "url": "./images/1027-1.png", "alt": "1027-morning", "permalink": "1027-1.html", "text": "10/27/2025 Morning" }
 ]
