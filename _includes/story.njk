@@ -14,7 +14,7 @@
   <main class="container">
     {% if hero and hero.src %}
     <figure class="hero reveal">
-      <img src="{{ hero.src | url }}" alt="{{ hero.alt or '' }}" loading="eager" decoding="async">
+      <img src="./{{ hero.src | url }}" alt="{{ hero.alt or '' }}" loading="eager" decoding="async">
       {% if hero.alt %}<figcaption class="sr-only">{{ hero.alt }}</figcaption>{% endif %}
     </figure>
     {% endif %}
